@@ -63,3 +63,19 @@ def draw_bs_pairs_linreg(x, y, size=1):
         bs_slope_reps[i], bs_intercept_reps[i] = np.polyfit(bs_x, bs_y, 1)
 
     return bs_slope_reps, bs_intercept_reps
+
+
+def swap_random(a, b):
+    """Randomly swap entries in two arrays."""
+    # Indices to swap
+    swap_inds = np.random.random(size=len(a)) < 0.5
+    
+    # Make copies of arrays a and b for output
+    a_out = np.copy(a)
+    b_out = np.copy(b)
+    
+    # Swap values
+    a_out[swap_inds] = b[swap_inds]
+    b_out[swap_inds] = a[swap_inds]
+
+    return a_out, b_out
